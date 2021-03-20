@@ -7,7 +7,7 @@ class ChirperNav extends Component {
     return (
       <nav className="nav">
         <div>
-          <img className="primary-icon" src={logo} />
+          <img className="primary-icon" src={logo} alt="logo"/>
         </div>
         <ul className="nav-list">
           <li className="list-item">
