@@ -8,7 +8,7 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <h3 className="center">Dashboard</h3>
+        <h3 className="center">Your Timeline</h3>
         <ul className="dashboard-list">
           {tweetIds.map((id) => (
             <li key={id}>

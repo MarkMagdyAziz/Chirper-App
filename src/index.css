@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 body {
   margin: 0;
   padding: 0;
@@ -6,15 +11,15 @@ body {
 }
 
 a {
-  text-decoration: none;
-  color: #252525;
+  text-decoration: none !important;
+  color: #252525 !important;
 }
 
-.container {
+/* .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 10px;
-}
+} */
 
 .chirper-btn {
   text-transform: uppercase;
@@ -48,26 +53,67 @@ a {
   font-weight: bold;
 }
 
-.nav ul {
+ .nav {
+   
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  text-decoration: none;
+  justify-content: space-around ;
+  align-items: center;
+  font-size: 16px;
+  
 }
 
-.nav li:first-child {
-  padding-left: 0;
+.nav-list .list-item {
+  display: inline-block;
+  padding: 20px 10px;
+ 
+}
+.nav .primary-icon{
+  width:60px;
+  height:35px;
 }
 
-ul {
-  padding-left: 0;
-}
+/* @media all and (max-width:480px){
+  .nav {
+    flex-direction: column;
+    position: relative;
+  }
+  .nav .container-icon {
+    width: 100%
+  }
+  .menu {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+  }
+ 
+  .nav-list .list-item {
+    display: block;
+   border-top:1px solid #000 ;
+
+  }
+  .primary-icon {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+} */
 
 li {
   list-style-type: none;
-  padding: 10px;
-  text-decoration: none;
+  padding: 5px;
 }
+ul {
+  padding-left: 0;
+} 
+
 
 .avatar {
   height: 50px;
@@ -93,39 +139,47 @@ li {
 }
 
 /* Hacky but less typing in the video */
-.tweet-info > div > span:first-child {
+.tweet-info>div>span:first-child {
   font-weight: bold;
   margin-right: 5px;
 }
-.tweet-info > div > span:nth-child(2) {
+
+.tweet-info>div>span:nth-child(2) {
   color: #969696;
   font-size: 16px;
 }
-.tweet-info > div > div {
+
+.tweet-info>div>div {
   color: #969696;
   font-size: 15px;
 }
-.tweet-info > div > p {
+
+.tweet-info>div>p {
   font-size: 18px;
   margin: 10px 0;
 }
+
 .tweet-icons {
   display: flex;
   align-items: center;
 }
-.tweet-icons > span {
+
+.tweet-icons>span {
   color: #969696;
   margin: 0 15px 0 5px;
   font-size: 18px !important;
 }
+
 .tweet-icon {
   font-size: 27px;
   color: #697784;
 }
+
 .tweet-icon:hover {
   color: #00b5d6;
   cursor: pointer;
 }
+
 .replying-to {
   border: none;
   background: transparent;
@@ -149,7 +203,7 @@ li {
 }
 
 .textarea {
-  border-radius: 6px;
+  border-radius: 4px;
   border: 1px solid #dad7d7;
   padding: 10px;
   font-size: 15px;

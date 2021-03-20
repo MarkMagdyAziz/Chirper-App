@@ -1,17 +1,27 @@
 import React, { Component } from "react";
-import { Navbar, Nav, NavItem } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import logo from "../logo.svg";
 
 class ChirperNav extends Component {
   render() {
     return (
-      <Navbar bg="light" variant="light">
-        <Navbar.Brand href="/#dashboard">Home</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="#newtweet">New Tweet</Nav.Link>
-          <Nav.Link href="#tweet">Tweet Page</Nav.Link>
-        </Nav>
-      </Navbar>
+      <nav className="nav">
+        <div>
+          <img className="primary-icon" src={logo} />
+        </div>
+        <ul className="nav-list">
+          <li className="list-item">
+            <NavLink to="/" exact activeClassName="active">
+              Home
+            </NavLink>
+          </li>
+          <li className="list-item">
+            <NavLink to="/new" activeClassName="active">
+              New Tweet
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
     );
   }
 }

@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleAddTweet } from "../actions/tweets";
+import { Redirect } from "react-router-dom";
 
 class NewTweet extends Component {
   state = {
     text: "",
+    toHome: false,
   };
 
   handleChange = (e) => {
@@ -17,18 +19,25 @@ class NewTweet extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+
     const { text } = this.state;
-    const { dispatch } = this.props;
-    // Todo: redirect to / home page
-    // add state to redux store
-    console.log("New Tweet: ", this.props);
-    dispatch(handleAddTweet(text));
+
+    const { dispatch, id } = this.props;
+
+    dispatch(handleAddTweet(text, id));
+
     this.setState(() => ({
       text: "",
+      toHome: id ? false : true,
     }));
   };
   render() {
-    const { text } = this.state;
+    const { text, toHome } = this.state;
+
+    if (toHome === true) {
+      return <Redirect to="/" />;
+      // this.props.history.push(`/`);
+    }
 
     const textLeft = 280 - text.length;
 
@@ -38,10 +47,10 @@ class NewTweet extends Component {
         <form className="new-tweet" onSubmit={this.handleSubmit}>
           <textarea
             placeholder="What's happening?"
-            className="textarea"
-            maxLength={280}
             value={text}
             onChange={this.handleChange}
+            className="textarea"
+            maxLength={280}
           />
           {textLeft <= 100 && <div className="tweet-length">{textLeft}</div>}
           <button className="chirper-btn" type="submit" disabled={text === ""}>
@@ -52,10 +61,5 @@ class NewTweet extends Component {
     );
   }
 }
-function mapStateToProps() {
-  return {};
-}
-function mapDispatchToProps() {
-  return {};
-}
+
 export default connect()(NewTweet);
