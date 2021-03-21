@@ -37,7 +37,6 @@ class App extends Component {
                   <Route path="/tweet/:id" component={TweetPage} />
                   <Route path="/new" component={NewTweet} />
                   <Route path="/notfound" component={NotFound} />
-                  <Redirect to="/" />
                   <Redirect to="notfound" />
                 </Switch>
               </div>
